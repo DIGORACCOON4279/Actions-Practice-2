@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: setup
+      - name: set-up
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
@@ -28,10 +28,10 @@ jobs:
 
       - name: Run test
         run: npm run test
-      
+
       - name: Build page
         run: npm run build
-  
+
       - name: Upload artifact
         if: ${{ matrix.os == 'ubuntu-latest' && matrix.node == 18 }}
         uses: actions/upload-pages-artifact@v3
